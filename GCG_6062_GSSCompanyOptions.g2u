@@ -1,0 +1,1627 @@
+﻿Program.Sub.ScreenSU.Start
+Gui.FMain..Create
+Gui.FMain..Size(17775,14175)
+Gui.FMain..MinX(0)
+Gui.FMain..MinY(0)
+Gui.FMain..Position(0,0)
+Gui.FMain..BackColor(-2147483633)
+Gui.FMain..MousePointer(0)
+Gui.FMain..Event(UnLoad,FMain_UnLoad)
+Gui.FMain..Event(Resize,FMain_Resize)
+Gui.FMain..Caption("FMain")
+Gui.FMain.picGSSLogo.Create(PictureBox)
+Gui.FMain.picGSSLogo.Size(4125,960)
+Gui.FMain.picGSSLogo.Position(5550,4800)
+Gui.FMain.picGSSLogo.BackColor(15790320)
+Gui.FMain.picGSSLogo.ForeColor(0)
+Gui.FMain.tabDash.Create(Tab)
+Gui.FMain.tabDash.Size(17310,12315)
+Gui.FMain.tabDash.Position(15,1125)
+Gui.FMain.tabDash.Tabs(2)
+Gui.FMain.tabDash.SetTab(0)
+Gui.FMain.tabDash.Caption("Tab 1")
+Gui.FMain.tabDash.SetTab(1)
+Gui.FMain.tabDash.Caption("Tab 2")
+Gui.FMain.GSGCALL.Create(GsGridControl)
+Gui.FMain.GSGCALL.Size(17040,11640)
+Gui.FMain.GSGCALL.Position(45,135)
+Gui.FMain.GSGCALL.Parent("tabDash",0)
+Gui.FMain.GSGCALL.Event(RowClick,GSGCALL_RowClick)
+Gui.FMain.GSGCALL.Event(RowCellClick,GSGCALL_RowCellClick)
+Gui.FMain.GSGCALL.Event(CellValueChanged,GSGCALL_CellValueChanged)
+Gui.FMain.GSGCCOMP.Create(GsGridControl)
+Gui.FMain.GSGCCOMP.Size(17040,11640)
+Gui.FMain.GSGCCOMP.Position(45,135)
+Gui.FMain.GSGCCOMP.Parent("tabDash",1)
+Gui.FMain.frmButtons.Create(Frame)
+Gui.FMain.frmButtons.Size(15810,1095)
+Gui.FMain.frmButtons.Position(1470,45)
+Gui.FMain.cmdCompare.Create(Button)
+Gui.FMain.cmdCompare.Size(1050,375)
+Gui.FMain.cmdCompare.Position(2925,615)
+Gui.FMain.cmdCompare.Caption("Compare")
+Gui.FMain.cmdCompare.Parent("frmButtons")
+Gui.FMain.cmdCompare.Event(Click,FMain_cmdCompare)
+Gui.FMain.cmdCompare.Enabled(False)
+Gui.FMain.cmdRefresh.Create(Button)
+Gui.FMain.cmdRefresh.Size(675,675)
+Gui.FMain.cmdRefresh.Position(135,225)
+Gui.FMain.cmdRefresh.Caption("REFRESH")
+Gui.FMain.cmdRefresh.Event(Click,FMain_cmdRefresh)
+Gui.FMain.cmdRefresh.Parent("frmButtons")
+Gui.FMain.cmdExport.Create(Button)
+Gui.FMain.cmdExport.Size(840,375)
+Gui.FMain.cmdExport.Position(13020,120)
+Gui.FMain.cmdExport.Caption("Export")
+Gui.FMain.cmdExport.Event(Click,FMain_cmdExport)
+Gui.FMain.cmdExport.Parent("frmButtons")
+Gui.FMain.cmdExport.Enabled(False)
+Gui.FMain.frmPermissions.Create(Frame)
+Gui.FMain.frmPermissions.Size(2145,495)
+Gui.FMain.frmPermissions.Position(9060,540)
+Gui.FMain.frmPermissions.Parent("frmButtons")
+Gui.FMain.frmPermissions.Visible(False)
+Gui.FMain.optEdit.Create(Option)
+Gui.FMain.optEdit.Enabled(False)
+Gui.FMain.optEdit.Size(705,255)
+Gui.FMain.optEdit.Position(1305,150)
+Gui.FMain.optEdit.Caption("Edit")
+Gui.FMain.optEdit.Parent("frmPermissions")
+Gui.FMain.optEdit.FontSize(7)
+Gui.FMain.optEdit.Event(Click,optEdit_Click)
+Gui.FMain.optView.Create(Option)
+Gui.FMain.optView.Size(810,255)
+Gui.FMain.optView.Position(210,150)
+Gui.FMain.optView.Caption("View")
+Gui.FMain.optView.Parent("frmPermissions")
+Gui.FMain.optView.FontSize(7)
+Gui.FMain.optView.Event(Click,optEdit_Click)
+Gui.FMain.progressBar1.Create(ProgressBar)
+Gui.FMain.progressBar1.Size(1920,255)
+Gui.FMain.progressBar1.Position(4440,660)
+Gui.FMain.progressBar1.Visible(False)
+Gui.FMain.progressBar1.Parent("frmButtons")
+Gui.FMain.lblStatus.Create(Label,"Loading .....",False,1740,315,0,4470,330,True,0,"Arial",8,-2147483633,0)
+Gui.FMain.lblStatus.Parent("frmButtons")
+Gui.FMain.dtpFrom.Create(DatePicker)
+Gui.FMain.dtpFrom.Size(1530,345)
+Gui.FMain.dtpFrom.Position(7440,135)
+Gui.FMain.dtpFrom.Parent("frmButtons")
+Gui.FMain.dtpUpto.Create(DatePicker)
+Gui.FMain.dtpUpto.Size(1530,345)
+Gui.FMain.dtpUpto.Position(7440,570)
+Gui.FMain.dtpUpto.Parent("frmButtons")
+Gui.FMain.lbl_dtpFrom.Create(Label,"From",True,675,255,0,6720,240,True,0,"Arial",8,-2147483633,0)
+Gui.FMain.lbl_dtpFrom.Parent("frmButtons")
+Gui.FMain.lbl_dtpUpto.Create(Label,"Upto",True,675,255,0,6720,675,True,0,"Arial",8,-2147483633,0)
+Gui.FMain.lbl_dtpUpto.Parent("frmButtons")
+Gui.FMain.cboCoCode.Create(ComboBox)
+Gui.FMain.cboCoCode.Size(1095,330)
+Gui.FMain.cboCoCode.Position(1770,630)
+Gui.FMain.cboCoCode.Parent("frmButtons")
+Gui.FMain.cboCoCode.Locked(True)
+Gui.FMain.lbl_cboCoCode.Create(Label,"CoCode",True,690,255,0,975,720,True,0,"Arial",8,-2147483633,0)
+Gui.FMain.lbl_cboCoCode.Parent("frmButtons")
+Gui.FMain.chkTech.Create(CheckBox)
+Gui.FMain.chkTech.Size(1560,300)
+Gui.FMain.chkTech.Position(1065,225)
+Gui.FMain.chkTech.Parent("frmButtons")
+Gui.FMain.chkTech.Caption("Technical View")
+Gui.FMain.cmdReport.Create(Button)
+Gui.FMain.cmdReport.Size(840,375)
+Gui.FMain.cmdReport.Position(14190,120)
+Gui.FMain.cmdReport.Parent("frmButtons")
+Gui.FMain.cmdReport.Caption("Report")
+Gui.FMain.cmdReport.Event(Click,FMain_cmdReport)
+Gui.FMain.chkDebug.Create(CheckBox)
+Gui.FMain.chkDebug.Visible(False)
+Gui.FMain.chkDebug.Size(900,300)
+Gui.FMain.chkDebug.Position(9195,150)
+Gui.FMain.chkDebug.Parent("frmButtons")
+Gui.FMain.chkDebug.Caption("Debug")
+Gui.FMain.txtDebug.Create(TextBox,"",False,900,300,0,10215,150,True,0,"Arial",8,-2147483643,1)
+Gui.FMain.txtDebug.Parent("frmButtons")
+Gui.FMain.ddlReport.Create(DropDownList)
+Gui.FMain.ddlReport.Size(2265,330)
+Gui.FMain.ddlReport.Position(13440,630)
+Gui.FMain.ddlReport.Parent("frmButtons")
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+V.Global.bAmbCreds.Declare
+V.Global.sCallerCo.Declare
+V.Global.sGAB_ID.Declare(String)
+V.Global.bGVALL.Declare(Boolean)
+V.Global.sITNotice.Declare(String,"IT Reference Glen Skidmore")
+V.Global.sOrder.Declare(String)
+V.Global.sOrderLn.Declare(String)
+V.Global.sProject.Declare(String)
+V.Global.nRegColsAll.Declare(Long,21)
+V.Global.nRegID.Declare(Long)
+V.Global.sRegName.Declare(String)
+V.Global.sTransID.Declare(String)
+
+
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+'Coded by: GLEN.S
+
+'Program.External.Include.Library("MOG_PDSN_HOLD.lib")
+
+V.Global.sCallerCo.Set(V.Caller.CompanyCode)
+F.Global.General.OverrideCompany(V.Global.sCallerCo)
+
+
+'Call from Sales Order Header or Sales Order Line
+
+F.Global.General.ReadOption(402049,0,False,"00000",V.Global.bAmbCreds)
+F.Intrinsic.Control.If(V.Global.bAmbCreds,=,False)
+	F.Global.General.SaveOption(402049,"00000",True,"","","","","")
+	'F.Intrinsic.UI.Msgbox("System Option: Database Connection setting updated - Logoff GSS and log back in to activate","Credentials Setting Updated")
+	'F.Intrinsic.Control.End
+F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.CallSub(gsgcall_load)
+V.Global.sGAB_ID.Set("COOPTIONSDASH")
+
+V.Global.sRegName.Set("COOPTIONSDASH")
+V.Global.nRegID.Set(2401659)
+F.Intrinsic.Control.BlockEvents
+'F.Intrinsic.Debug.InvokeDebugger
+'F.Intrinsic.Debug.Stop
+
+
+'F.ODBC.Connection!ConX.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass,300)
+F.ODBC.Connection!ConX.OpenCompanyConnection(2500)
+'F.Intrinsic.Control.CallSub(dsn_opencallerco)
+F.Intrinsic.Control.CallSub(sub_TableCheck,"sCoCode",V.Caller.CompanyCode)
+'F.ODBC.Connection!CommonX.OpenConnection(V.Ambient.CCon,V.Ambient.CUser,V.Ambient.CPass,300)
+F.ODBC.Connection!CommonX.OpenCommonConnection(2500)
+
+F.Intrinsic.Control.CallSub(FMain_FormSetup)
+
+F.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.CallSub(FMain_Resize)
+
+f.Intrinsic.Control.CallSub(FMain_cmdRefresh)
+Gui.FMain..Visible(True)
+
+Program.Sub.Main.End
+
+Program.Sub.FMain_FormSetup.Start
+V.Local.nCtr.Declare(Long)
+V.Local.bExists.Declare(Boolean)
+V.Local.sSQL.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sTemp0.Declare(String)
+
+F.Intrinsic.String.Build("{0}-Company Options - {1}",V.Caller.CompanyCode,V.Global.sProject,V.Local.sTemp)
+Gui.FMain..Caption(V.Local.sTemp)
+Gui.FMain.tabDash.SetTab(0)
+Gui.FMain.tabDash.Caption(V.Caller.CompanyCode)
+Gui.FMain.tabDash.TabVisible(1,False)
+
+Gui.FMain.lbl_dtpFrom.Visible(False)
+Gui.FMain.lbl_dtpUpto.Visible(False)
+Gui.FMain.dtpFrom.Visible(False)
+Gui.FMain.dtpUpto.Visible(False)
+
+	F.Intrinsic.File.GetFileNameFromFQN(V.Caller.ScriptFile,V.Global.sProject)
+	F.Intrinsic.String.Build("GAB: {0}",V.Global.sProject,V.Local.sTemp)
+	'gui.FMain.lblGABInfo.Caption(V.Local.sTemp)
+	
+	F.Intrinsic.String.Build("{0}\GAB\GAS\gssG.ico",V.Caller.PluginsDir,v.Local.sTemp)
+	F.Intrinsic.File.Exists(V.Local.sTemp,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.String.Build("{0}\GAB\GAS\gss2.ico",V.Caller.PluginsDir,v.Local.sTemp)
+		F.Intrinsic.File.Exists(V.Local.sTemp,V.Local.bExists)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		Gui.FMain..Icon(V.Local.sTemp)
+	'	Gui.FNewPO..Icon(V.Local.sTemp)
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.String.Build("{0}\GAB\GAS\MOG_GSS_Logo_{0}.png",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Local.sTemp)
+	F.Intrinsic.File.Exists(V.Local.sTemp,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.String.Build("{0}\GAB\GAS\GAB_GSS_Logo_Green_Dash.png",V.Caller.PluginsDir,V.Caller.CompanyCode,V.Local.sTemp)
+		F.Intrinsic.File.Exists(V.Local.sTemp,V.Local.bExists)
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+	'	Gui.FMain.picGSSLogo.Picture(V.Local.sTemp)
+	'	Gui.FMain.picGSSLogo.Visible(True)
+	F.Intrinsic.Control.EndIf
+
+	Gui.FMain.cboCoCode.ClearItems
+	Gui.FMain.cboCoCode.AddItem("",0)
+
+V.Local.nCtr.Set(0)
+V.Local.sSQL.Set("SELECT * FROM COMPANIES WHERE COCODE <> '{0}' ORDER BY COCODE ; ")
+F.Intrinsic.String.Build(V.Local.sSQL,V.Caller.CompanyCode,V.Local.sSQL)
+F.ODBC.Connection!CommonX.OpenRecordsetRO("rstCommon",V.Local.sSQL)
+F.Intrinsic.Control.DoUntil(V.ODBC.CommonX!rstCommon.EOF,=,True)
+
+	F.Intrinsic.String.Build("Global_{0}",V.ODBC.CommonX!rstCommon.FieldValTrim!COCODE,V.Local.sTemp)
+	F.ODBC.Misc.IsDSN(V.Local.sTemp,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+		F.Intrinsic.Control.GoTo("Skip_To_Next_CoCode")
+	F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Math.Add(V.Local.nCtr,1,V.Local.nCtr)
+	Gui.FMain.cboCoCode.AddItem(V.ODBC.CommonX!rstCommon.FieldValTrim!COCODE,V.Local.nCtr)
+	F.Intrinsic.String.Build("Global_{0}",V.ODBC.CommonX!rstCommon.FieldValTrim!COCODE,V.Local.sTemp0)
+	F.ODBC.Misc.IsDSN(V.Local.sTemp0,V.Local.bExists)
+	F.Intrinsic.Control.If(V.Local.bExists,=,True)
+		Gui.FMain.cboCoCode.AddItem(V.ODBC.CommonX!rstCommon.FieldValTrim!COCODE,V.Local.nCtr)
+	F.Intrinsic.Control.EndIf
+
+	'----------------------------------------------------------
+	F.Intrinsic.Control.Label("Skip_To_Next_CoCode")
+	
+	F.ODBC.CommonX!rstCommon.MoveNext
+F.Intrinsic.Control.Loop
+F.ODBC.CommonX!rstCommon.Close
+
+Gui.FMain.ddlReport.AddItem("Report Portrait",0)
+Gui.FMain.ddlReport.AddItem("Report Landscape",1)
+Gui.FMain.ddlReport.ListIndex(0)
+
+	Gui.FMain.tabDash.SetTab(0)
+
+	F.Intrinsic.Control.CallSub(setAnchors)
+	Gui.FMain.optView.Value(True)
+	F.Intrinsic.Control.CallSub(checkpermissions)
+
+F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+	Gui.FMain.chkDebug.Visible(True)
+	Gui.FMain.txtDebug.Visible(True)
+F.Intrinsic.Control.EndIf
+
+
+Program.Sub.FMain_FormSetup.End
+
+Program.Sub.setAnchors.Start
+	'0 - None
+	'1 - Top
+	'2 - Bottom
+	'4 - Left
+	'8 - Right
+
+	'Gui.FMain.picGSSLogo.Anchor(1)
+	'Gui.FMain.lblStatus.Anchor(5)
+	'Gui.FMain.progressBar1.Anchor(5)
+	Gui.FMain.frmButtons.Anchor(9)
+	Gui.FMain.frmPermissions.Anchor(9)
+	Gui.FMain.tabDash.Anchor(15)
+	'Gui.FMain.GSGCALL.Anchor(15)
+Program.Sub.setAnchors.End
+
+Program.Sub.CheckPermissions.Start
+	V.Local.bEditGrp.Declare
+	V.Local.bIssueGrp.Declare
+	V.Local.bWiptoFG.Declare
+
+	'Check what groups the User is in
+	'F.Global.Security.IsInGroup(v.Caller.User,"EDITWO",v.Local.bEditGrp)
+	'F.Intrinsic.Control.If(V.Local.bEditGrp,=,True)
+	'	Gui.FMain.optEdit.Enabled(True)
+	'	Gui.FMain.cmdNewSO.Enabled(True)
+	'	Gui.FMain.cmdNewWO.Enabled(True)
+	'F.Intrinsic.Control.EndIf
+
+Program.Sub.CheckPermissions.End
+
+Program.Sub.FMain_cmdExport.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+V.Local.sDashName.Declare(String,"GSGCALL")
+	V.Local.sFileExport.Declare
+	V.Local.bExcel.Declare
+	V.Local.bFileLocked.Declare
+	V.Local.sMsg.Declare
+
+'Changed to use Caller.TempDir as Cloud installs have trouble finding user temp or folders on the network.
+
+	F.Automation.MSExcel.CheckPresence(V.Local.bExcel)
+
+	F.Intrinsic.Control.SelectCase(V.Screen.FMain!tabDash.Tab)
+		F.Intrinsic.Control.Case(0)
+			F.Intrinsic.Control.If(V.Local.bExcel)
+					F.Intrinsic.String.Build("{0}\{1}_Export.xlsx",V.Caller.TempDir,V.Local.sDashName,V.Local.sFileExport)
+					F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+					F.Intrinsic.Control.If(V.Local.bFileLocked)
+						F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+						F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+					F.Intrinsic.Control.Else
+						Gui.FMain.GSGCALL.Export(V.Local.sFileExport,"xlsx")
+						F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+					F.Intrinsic.Control.EndIf
+				F.Intrinsic.Control.Else
+					F.Intrinsic.String.Build("{0}\{1}_Export.csv",V.Caller.TempDir,V.Local.sDashName,V.Local.sFileExport)
+					F.Intrinsic.File.IsFileLocked(V.Local.sFileExport,V.Local.bFileLocked)
+					F.Intrinsic.Control.If(V.Local.bFileLocked)
+						F.Intrinsic.String.Build("File is already open. Please close and export again.{0}File: {1}",V.Ambient.NewLine,V.Local.sFileExport,V.Local.sMsg)
+						F.Intrinsic.UI.Msgbox(V.Local.sMsg,"File In Use")
+					F.Intrinsic.Control.Else
+						Gui.FMain.GSGCALL.Export(V.Local.sFileExport,"csv")
+					F.Intrinsic.Control.EndIf
+					F.Intrinsic.Task.ShellExec(0,"",V.Local.sFileExport,"","",1)
+			F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.EndSelect
+	
+F.Intrinsic.Control.ExitSub
+	
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.FMain_cmdExport.End
+
+Program.Sub.FMain_cmdOrder.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.FMain_cmdOrder.End
+
+Program.Sub.FMain_cmdCompare.Start
+F.Intrinsic.Control.If(V.Caller.User,<>,"SKIDMOG ")
+	F.Intrinsic.Control.Try
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+V.Local.nColCtr.Declare(Long,-1)
+V.Local.nColumn.Declare(Long)
+V.Local.nCtr.Declare(Long)
+V.Local.sDTable.Declare(String)
+V.Local.sDView.Declare(String)
+V.Local.bExists.Declare
+V.Local.fExtension.Declare(Float)
+V.Local.sForm.Declare(String)
+V.Local.sGrid.Declare(String)
+V.Local.nGridCols.Declare(Long)
+V.Local.sGSGCcol.Declare(String)
+V.Local.sGSGC.Declare(String)
+V.Local.sObject.Declare(String)
+V.Local.sRegName.Declare(String)
+V.Local.sRegistry.Declare
+V.Local.sRet.Declare(String)
+V.Local.bSOs.Declare(Boolean)
+V.Local.sSQL.Declare(String)
+V.Local.sSQLsoc.Declare(String)
+V.Local.fTemp.Declare
+V.Local.sTemp.Declare(String)
+V.Local.nUB.Declare(Long)
+
+V.Local.sCompared.Declare
+
+	V.Local.sForm.Set("FMain")	
+	V.Local.sObject.Set("GSGCCOMP")
+	'V.Local.sDTable.Set("DTCOMP")
+	V.Local.sDTable.Set("DTALL$DTCOMP")
+	''V.Local.sDTable.Set("DTCOMP")
+	V.Local.sDView.Set("DVCOMP")
+	V.Local.sGrid.Set("GVCOMP")
+	'V.Global.nRegColsAll.Set(13)
+	V.Local.nGridCols.Set(13)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+V.Local.sCompared.Set(V.Screen.FMain!cboCoCode.Text)
+F.Intrinsic.Control.If(V.Local.sCompared.Trim,=,"")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+
+'Gui.FMain.tabDash.TabVisible(1,True)
+'Gui.FMain.tabDash.SetTab(1)
+'Gui.FMain.tabDash.Caption(V.Screen.FMain!cboCoCode.Text)
+
+
+'Need to either load all the records into a datatable or do a compare for all the records.
+'F.Intrinsic.String.Build("Global_{0}",V.Local.sCompared.Trim,V.Local.sTemp)
+'F.ODBC.Connection!CoCodeX.OpenConnection(V.Local.sTemp,V.Ambient.PUser,V.Ambient.PPass,300)
+F.Global.General.OverrideCompany(V.Local.sCompared)
+F.ODBC.Connection!CoCodeX.OpenCompanyConnection(300)
+F.ODBC.Connection!CoCodeX.TableExists("XGS_CO_OPTION_TITLES",V.Local.bExists)
+F.Intrinsic.Control.If(V.Local.bExists,=,False)
+	F.Intrinsic.Control.CallSub(sub_TableCheck,"sCoCode",V.Local.sCompared.Trim)
+	F.Intrinsic.Control.If(V.Args.bError,=,True)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	''F.ODBC.Connection!CoCodeX.OpenConnection(V.Local.sTemp,V.Ambient.PUser,V.Ambient.PPass,300)
+	F.Global.General.OverrideCompany(V.Local.sCompared)
+	F.ODBC.Connection!CoCodeX.OpenCompanyConnection(300)
+F.Intrinsic.Control.EndIf
+
+	V.Local.sGSGC.Set("")
+	'F.Intrinsic.String.Build("{0}DIFFERENT,True,Differs,Center,Center,32,50,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}COMPANY_CODE,True,Company Code,Center,Center,158,161,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}IDSEQ,False,ID,Center,Center,60,65,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}ID,False,ID,Center,Center,60,65,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}SEQ,False,Seq,Center,Center,35,50,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_BOOLEAN,True,T/F,Center,Center,28,42,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}ASCII_FLAG,True,ASCII,Center,Center,40,55,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_TITLE,True,Title,Center,Left,100,320,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}TEXT1,True,Text1,Center,Left,150,413,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_NUMERIC,True,Numeric,Center,FAR,75,90,True,False,Y,###;###;###;##0.000000,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_LONG,True,Long,Center,FAR,65,75,True,False,Y,###;###;###;##0,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}DATE_LAST_CHG,True,Date Chg,Center,Center,72,82,True,False,,,d,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}LAST_CHG_BY,True,Chg by,Center,Center,40,70,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}LAST_CHG_ID,True,Chg User,Center,Center,40,70,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+
+
+	V.Local.sSQL.Set("SELECT ")
+	F.Intrinsic.String.Concat(V.Local.sSQL,"  '",V.Local.sCompared.Trim,"' AS COMPANY_CODE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.ID + RIGHT(CONCAT('0000',LTRIM(VOP.SEQUENCE)),4) as IDSEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.ID AS ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.SEQUENCE AS SEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", RTRIM(VOP.TEXT1) AS TEXT1 ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(VOP.F_BOOLEAN AS BIT) AS F_BOOLEAN ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(VOP.F_NUMERIC ='', '0',VOP.F_NUMERIC ) AS F_NUMERIC ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(VOP.F_LONG ='', '0',VOP.F_LONG ) AS F_LONG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", RTRIM(VOP.ASCII_FLAG) AS ASCII_FLAG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS OP_TITLE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.DATE_LAST_CHG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.LAST_CHG_BY ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.LAST_CHG_ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," FROM   V_OP_HEADER VOP ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID<>'000000' AND VOP.SEQUENCE <> '' ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," ORDER BY ID, SEQUENCE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," ; ",V.Local.sSQL)
+
+
+	F.Intrinsic.Control.If(V.Screen.FMain!chkDebug.Value,=,1)
+	F.Intrinsic.Control.AndIf(V.Screen.FMain!txtDebug.Text,=,"499")
+		Function.Intrinsic.Debug.InvokeDebugger
+		Function.Intrinsic.Debug.Stop
+	F.Intrinsic.Control.EndIf
+
+	'Create DataTable ------------------------------------------
+	F.Intrinsic.Control.If(V.DataTable.[V.Local.sDTable].Exists,=,True)
+		F.Data.DataTable.Close(V.Local.sDTable)
+	F.Intrinsic.Control.endif
+	F.Data.DataTable.CreateFromSQL(V.Local.sDTable,"CoCodeX",V.Local.sSQL,True)
+
+F.ODBC.Connection!CoCodeX.Close
+F.Global.General.OverrideCompany(V.Global.sCallerCo)
+
+
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+V.Local.fTemp.Redim(0,3)
+F.Intrinsic.UI.InvokeWaitDialog("Comparing Company Options","Company Options Compare")
+F.Intrinsic.Control.For(V.Local.nCtr,0,V.DataTable.DTALL.RowCount--,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Comparing Company Options",V.Local.nCtr,0,V.DataTable.DTALL.RowCount--)
+	F.Intrinsic.String.Build("ID='{0}' AND SEQ='{1}'",V.DataTable.DTALL(V.Local.nCtr).ID!FieldValTrim,V.DataTable.DTALL(V.Local.nCtr).SEQ!FieldValTrim,V.Local.sSQL)
+	F.Data.DataTable.Select(V.Local.sDTable,V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,<>,"***NORETURN***")
+		F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+		V.Local.fTemp(0).Set(V.DataTable.DTALL(V.Local.nCtr).F_NUMERIC!FieldVal)
+		V.Local.fTemp(1).Set(V.DataTable.[V.Local.sDTable](V.Local.sRet(0).Long).F_NUMERIC!FieldVal)
+		V.Local.fTemp(2).Set(V.DataTable.DTALL(V.Local.nCtr).F_LONG!FieldVal)
+		V.Local.fTemp(3).Set(V.DataTable.[V.Local.sDTable](V.Local.sRet(0).Long).F_LONG!FieldVal)
+		'	'TEXT1
+		F.Intrinsic.Control.If(V.DataTable.DTALL(V.Local.nCtr).TEXT1!FieldValTrim,<>,V.DataTable.[V.Local.sDTable](V.Local.sRet(0).Long).TEXT1!FieldValTrim)
+				F.Data.DataTable.SetValue("DTALL",V.Local.nCtr,"DIFFERENT",True)
+			'	'F_BOOLEAN
+			F.Intrinsic.Control.ElseIf(V.DataTable.DTALL(V.Local.nCtr).F_BOOLEAN!FieldVal,<>,V.DataTable.[V.Local.sDTable](V.Local.sRet(0).Long).F_BOOLEAN!FieldVal)
+				F.Data.DataTable.SetValue("DTALL",V.Local.nCtr,"DIFFERENT",True)
+			'	'F_NUMERIC
+			F.Intrinsic.Control.ElseIf(V.Local.fTemp(0),<>,V.Local.fTemp(1))
+				F.Data.DataTable.SetValue("DTALL",V.Local.nCtr,"DIFFERENT",True)
+			'	'F_LONG
+			F.Intrinsic.Control.ElseIf(V.Local.fTemp(2),<>,V.Local.fTemp(3))
+				F.Data.DataTable.SetValue("DTALL",V.Local.nCtr,"DIFFERENT",True)
+			'	'ASCII_FLAG
+			F.Intrinsic.Control.ElseIf(V.DataTable.DTALL(V.Local.nCtr).ASCII_FLAG!FieldValTrim,<>,V.DataTable.[V.Local.sDTable](V.Local.sRet(0).Long).ASCII_FLAG!FieldValTrim)
+				F.Data.DataTable.SetValue("DTALL",V.Local.nCtr,"DIFFERENT",True)
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.nCtr)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+F.Intrinsic.UI.InvokeWaitDialog("Comparing Company Options","Company Options Compare")
+F.Intrinsic.Control.For(V.Local.nCtr,0,V.DataTable.[V.Local.sDTable].RowCount--,1)
+	F.Intrinsic.UI.ChangeWaitStatus("Checking for extra records",V.Local.nCtr,0,V.DataTable.DTALL.RowCount--)
+	F.Intrinsic.String.Build("ID='{0}' AND SEQ='{1}'",V.DataTable.[V.Local.sDTable](V.Local.nCtr).ID!FieldValTrim,V.DataTable.[V.Local.sDTable](V.Local.nCtr).SEQ!FieldValTrim,V.Local.sSQL)
+	F.Data.DataTable.Select("DTALL",V.Local.sSQL,V.Local.sRet)
+	F.Intrinsic.Control.If(V.Local.sRet.Trim,=,"***NORETURN***")
+		'Function.Intrinsic.Debug.InvokeDebugger
+		'Function.Intrinsic.Debug.Stop
+		
+		'If the record does not exist in current CompanyCode then add to DTALL DataTable
+		F.Data.DataTable.AddRow("DTALL","DIFFERENT",True,"COMPANY_CODE",V.Caller.CompanyCode,"OP_TYPE",V.DataTable.[V.Local.sDTable](V.Local.nCtr).LAST_CHG_BY!FieldValTrim,"F_BOOLEAN",False,"OP_TITLE","***exists in other CoCode***","IDSEQ",V.DataTable.[V.Local.sDTable](V.Local.nCtr).IDSEQ!FieldValTrim,"ID",V.DataTable.[V.Local.sDTable](V.Local.nCtr).ID!FieldValTrim,"SEQ",V.DataTable.[V.Local.sDTable](V.Local.nCtr).SEQ!FieldValTrim)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.nCtr)
+
+
+'Create DataView ------------------------------------------
+F.Intrinsic.Control.If(V.DataView.[V.Local.sDTable]![V.Local.sDView].exists,=,true)
+	F.Data.DataView.Close(V.Local.sDTable,V.Local.sDView)
+F.Intrinsic.Control.EndIf
+F.Data.DataView.Create(V.Local.sDTable,V.Local.sDView)
+F.Data.DataTable.AddRelation("DTALL","ID*!*SEQ",V.Local.sDTable,"ID*!*SEQ",V.Local.sCompared.Trim)
+	
+'Create GridView ------------------------------------------
+Gui.[V.Local.sForm].GSGCALL.AddGridViewFromDataView(V.Local.sGrid,"DTALL","DVCOMP")
+'================= 
+'This was used when we added the relationship, but now let's just put them in the same grid - differences between table contents across companies.
+'doing sub grid use GSGCALL as object
+F.Intrinsic.Control.CallSub(GSGC_Layout,"sForm",V.Local.sForm,"sObject","GSGCALL","sDTable","DTALL","sDView","DVCOMP","sGrid",V.Local.sGrid,"nGridCols",V.Local.nGridCols,"sSQL","SKIP_SQL","sGSGC",V.Local.sGSGC)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+F.Intrinsic.UI.CloseWaitDialog
+
+
+
+'F.Data.DataTable.Merge("DTCOMP","DTALL",True,1)
+
+F.Intrinsic.Control.ExitSub
+'-------------------=======--------------------------------------------------------------------------------------
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"MultiSelect",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionBehaviorEditable",False)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowSort",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowFilter",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsDetailShowDetailTabs",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewShowGroupPanel",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewRowAutoHeight",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsMenuShowAutoFilterRowItem",True)
+'	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"EnableAppearanceOddRow",True)
+	
+'	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"EnterKeyNavigation","Vertical")
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridviewProperty(V.Local.sGrid,"OptionsViewColumnAutoWidth",False)
+	'Don't use BestFitColumns - very slow except if very small grid and few rows
+	'Gui.[V.Local.sForm].[V.Local.sObject].BestFitColumns(V.Local.sGrid)
+
+	'Gui.[V.Local.sForm].[V.Local.sObject].SetColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"AllowSort",false)
+	
+	'NOTE SQL MUST BE IN SAME ORDER AS GSGC COLUMN SETUP - BUT We should study using Args.ColumnVisibleIndex in the ColumnPositionChanged
+
+	F.Intrinsic.Control.CallSub(GSGC_Layout,"sForm",V.Local.sForm,"sObject",V.Local.sObject,"sDTable",V.Local.sDTable,"sDView",V.Local.sDView,"sGrid",V.Local.sGrid,"nGridCols",V.Local.nGridCols,"sSQL","SKIP_SQL","sGSGC",V.Local.sGSGC)
+
+	'Gui.[V.Local.sForm].[V.Local.sObject].ResumeLayout
+	
+	'Gui.[V.Local.sForm].[V.Local.sObject].MainView(V.Local.sGrid)
+	'F.Intrinsic.Control.CallSub(FMain_resize)
+	'Gui.[V.Local.sForm]..Visible(True)
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+		Function.Intrinsic.Debug.InvokeDebugger
+		Function.Intrinsic.Debug.Stop
+	F.Intrinsic.Control.EndIf
+	F.Global.General.OverrideCompany(V.Global.sCallerCo)
+	
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.FMain_cmdCompare.End
+
+Program.Sub.FMain_cmdRefresh.Start
+'V.Global.bDebug.Set(True)
+F.Intrinsic.Control.CallSub(FMain_Resize)
+
+F.Intrinsic.Control.BlockEvents
+'Gui.FMain.tabDash.Visible(False)
+'Gui.FMain.picGSSLogo.Visible(True)
+'F.Intrinsic.Control.CallSub(disablecontrols)
+'Gui.FMain.pbStatus.Value(15)
+F.Intrinsic.Control.CallSub(gsgcall_load)
+'Gui.FrmSOMain.pbStatus.Value(90)
+'Gui.FrmSOMain.pbStatus.Value(100)
+'F.Intrinsic.Control.CallSub(enablecontrols)
+'Gui.FMain.picGSSLogo.Visible(False)
+'Gui.FMain.tabDash.Visible(True)
+F.Intrinsic.Control.UnBlockEvents
+'F.Intrinsic.Control.CallSub(FMain_Resize)
+
+Program.Sub.FMain_cmdRefresh.End
+
+Program.Sub.FMain_cmdReport.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+
+V.Local.sTemp.Declare(String)
+V.Local.sTemp2.Declare(String)
+
+V.Local.bRet.Declare(String)
+' Used in BI_eSetup
+V.Local.iRptID.Declare(Long,0)
+V.Local.sPath.Declare(String)
+V.Local.bExists.Declare(Boolean)
+V.Local.sRptID.Declare(String)
+V.Local.sMessage.Declare(String)
+
+V.Local.sRptName.Declare(String)
+V.Local.sBIParams.Declare(String)
+V.Local.sBIValues.Declare(String)
+V.Local.sPrinter.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.sSel.Declare(String)
+
+
+F.Intrinsic.Control.SelectCase(V.Screen.FMain!ddlReport.Text)
+	F.Intrinsic.Control.Case("Report Portrait")
+		V.Local.sRptName.Set("GCG_6062_CompanyOptions_MOG.rpt")
+	F.Intrinsic.Control.Case("Report Landscape")
+		V.Local.sRptName.Set("GCG_6062_CompanyOptionsLandscape.rpt")
+F.Intrinsic.Control.EndSelect
+
+'F.Intrinsic.Control.If(V.Screen.FMain!chkTech.Value,=,1)
+'	V.Local.sRptName.Set("SS_CompanyOptions_MOG.rpt")
+'F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.If(V.Screen.FMain!ddlReport.Text,=,"SS_Report")
+	F.Intrinsic.Control.CallSub(Sub_getrptid,"sRptName",V.Local.sRptName)
+	F.Intrinsic.Control.If(V.Args.nRptID,=,-1)
+		F.Intrinsic.Control.ExitSub
+	F.Intrinsic.Control.EndIf
+	V.Local.sRptID.Set(V.Args.nRptID)
+
+	F.Intrinsic.String.Split("CoCode*!*ComparedTo","*!*",V.Local.sBIParams)
+	F.Intrinsic.String.Build("{0}*!*{1}",V.Caller.CompanyCode,V.Screen.FMain!cboCoCode.Text,V.Local.sBIValues)
+	F.Intrinsic.String.Split(V.Local.sBIValues,"*!*",V.Local.sBIValues)
+		'	 2nd parameter in BI.PrintReport 0=Preview 1=Save 2=Prvw-Save 3=Print Last parameter True=Sync False=Async
+		'Save->		F.Global.BI.SaveReport(V.Local.sRptID,1,V.Local.sParamName,V.Local.sParamVal,V.Local.sAttach)
+	F.Global.BI.PrintReport(V.Local.sRptID,0,V.Local.sBIParams,V.Local.sBIValues,V.Local.sPrinter,False)
+	F.Intrinsic.Control.ExitSub
+'F.Intrinsic.Control.EndIf
+
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.FMain_cmdReport.End
+
+Program.Sub.FMain_UnLoad.Start
+F.Intrinsic.Control.End
+
+Program.Sub.FMain_UnLoad.End
+
+Program.Sub.FMain_Load.Start
+Program.Sub.FMain_Load.End
+
+Program.Sub.GSGCALL_Load.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+
+V.Local.nColCtr.Declare(Long,-1)
+V.Local.nColumn.Declare(Long)
+V.Local.nCtr.Declare(Long)
+V.Local.sDTable.Declare(String)
+V.Local.sDView.Declare(String)
+V.Local.fExtension.Declare(Float)
+V.Local.sForm.Declare(String)
+V.Local.sGrid.Declare(String)
+V.Local.nGridCols.Declare(Long)
+V.Local.sGSGCcol.Declare(String)
+V.Local.sGSGC.Declare(String)
+V.Local.sObject.Declare(String)
+V.Local.sRegName.Declare(String)
+V.Local.sRegistry.Declare
+V.Local.sRet.Declare(String)
+V.Local.bSOs.Declare(Boolean)
+V.Local.sSQL.Declare(String)
+V.Local.sSQLsoc.Declare(String)
+V.Local.bTechView.Declare
+V.Local.sTemp.Declare(String)
+V.Local.nUB.Declare(Long)
+V.Local.sWrap.Declare(String,"NoWrap")
+
+V.Local.bReadOnly.Declare(Boolean,True)
+V.Local.bAllowEdit.Declare(Boolean,False)
+V.Local.sEditFore.Declare(String)
+V.Local.sEditBack.Declare(String)
+F.Intrinsic.Control.If(V.Screen.FMain!optEdit.Value,=,True)
+	V.Local.bReadOnly.Set(False)
+	V.Local.bAllowEdit.Set(True)
+	V.Local.sEditBack.Set("LightYellow")
+	V.Local.sEditFore.Set("Blue")
+F.Intrinsic.Control.EndIf
+
+Gui.FMain.cmdCompare.Enabled(False)
+Gui.FMain.cboCoCode.Enabled(False)
+Gui.FMain.cboCoCode.Locked(True)
+F.Intrinsic.Control.If(V.Screen.FMain!chkTech.Value,=,1)
+	V.Local.bTechView.Set(True)
+	'Gui.FMain.cboCoCode.Enabled(True)
+	'Gui.FMain.cboCoCode.Locked(False)
+F.Intrinsic.Control.EndIf
+
+	'F.Intrinsic.Control.If(V.Screen.FMain!chkWordWrap.Value,=,1)
+		V.Local.sWrap.Set("Wrap")
+	'F.Intrinsic.Control.EndIf	
+	
+	V.Local.sForm.Set("FMain")	
+	V.Local.sObject.Set("GSGCALL")
+	V.Local.sDTable.Set("DTALL")
+	V.Local.sDView.Set("DVALL")
+	V.Local.sGrid.Set("GVALL")
+	'V.Global.nRegColsAll.Set(13)
+	V.Local.nGridCols.Set(13)
+
+
+	V.Local.sGSGC.Set("")
+	F.Intrinsic.String.Build("{0}DIFFERENT,True,Differs,Center,Center,32,50,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}COMPANY_CODE,True,CoCode,Center,Center,28,38,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_TYPE,True,Type,Center,Center,60,100,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_GROUP_ORDER,True,Order,Center,Center,40,55,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_BOOLEAN,True,T/F,Center,Center,28,42,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}ASCII_FLAG,True,ASCII,Center,Center,40,55,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_TITLE,True,Title,Center,Left,100,320,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_DATATYPE,{1},DType,Center,Center,38,49,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.bTechView,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}IDSEQ,False,IDSEQ,Center,Center,65,80,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}ID,{1},ID,Center,Center,60,65,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.bTechView,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}SEQ,{1},Seq,Center,Center,35,50,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.bTechView,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}TEXT1,True,Text1,Center,Left,150,420,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_NUMERIC,True,Numeric,Center,FAR,75,105,True,False,Y,###;###;###;##0.000000,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}F_LONG,True,Long,Center,FAR,65,75,True,False,Y,###;###;###;##0,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}DATE_LAST_CHG,True,Date Chg,Center,Center,72,82,True,False,,,d,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}LAST_CHG_BY,True,Chg by,Center,Center,40,70,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}LAST_CHG_ID,True,Chg User,Center,Center,40,70,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+	F.Intrinsic.String.Build("{0}OP_SELECTED,True,DDL selection,Center,Left,40,105,True,False,,,,,,,#$#",V.Local.sGSGC,V.Local.sGSGC)
+
+
+	V.Local.sSQL.Set("SELECT ")
+	F.Intrinsic.String.Concat(V.Local.sSQL,"  IF(COT.OP_TYPE IS NULL, VOP.LAST_CHG_BY, RTRIM(COT.OP_TYPE ) ) AS OP_TYPE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(0 AS BIT) AS DIFFERENT ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", '",V.Caller.CompanyCode,"' AS COMPANY_CODE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(VOP.F_BOOLEAN AS BIT) AS F_BOOLEAN ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_TITLE IS NULL, '', RTRIM(COT.OP_TITLE) ) AS OP_TITLE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_DATATYPE IS NULL, '', RTRIM(COT.OP_DATATYPE) ) AS OP_DATATYPE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_GROUP_ORDER IS NULL, '',COT.OP_GROUP_ORDER ) AS OP_GROUP_ORDER ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.ID + RIGHT(CONCAT('0000',LTRIM(VOP.SEQUENCE)),4)  as IDSEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.ID AS ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.SEQUENCE AS SEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", RTRIM(VOP.TEXT1) AS TEXT1 ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(VOP.F_NUMERIC ='', '0',VOP.F_NUMERIC ) AS F_NUMERIC ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(VOP.F_LONG ='', '0',VOP.F_LONG ) AS F_LONG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", RTRIM(VOP.ASCII_FLAG) AS ASCII_FLAG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.DATE_LAST_CHG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.LAST_CHG_BY ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", VOP.LAST_CHG_ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COD.OP_SELECTED IS NULL, '',RTRIM(COD.OP_SELECTED ) ) AS OP_SELECTED ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," FROM   V_OP_HEADER VOP ",V.Ambient.NewLine,V.Local.sSQL) 
+	F.Intrinsic.String.Concat(V.Local.sSQL," LEFT OUTER JOIN XGS_CO_OPTION_TITLES COT ON VOP.ID=COT.OP_ID AND VOP.SEQUENCE=COT.OP_SEQUENCE ",V.Ambient.NewLine,V.Local.sSQL) 
+	F.Intrinsic.String.Concat(V.Local.sSQL," LEFT OUTER JOIN XGS_CO_OPTION_DDL COD ON VOP.ID=COD.OP_ID AND VOP.SEQUENCE=COD.OP_SEQ AND VOP.F_LONG=COD.OP_F_LONG ",V.Ambient.NewLine,V.Local.sSQL)
+	'F.Intrinsic.Control.If(V.Caller.User,<>,"SKIDMOG ")
+		F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID<>'000000' AND VOP.SEQUENCE <> '' ",V.Ambient.NewLine,V.Local.sSQL)
+	'F.Intrinsic.Control.EndIf
+	'F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+	'	F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID='402149' ",V.Ambient.NewLine,V.Local.sSQL)
+	'F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Concat(V.Local.sSQL," ORDER BY OP_TYPE, OP_GROUP_ORDER, VOP.ID, VOP.SEQUENCE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," ; ",V.Local.sSQL)
+
+	F.Intrinsic.Control.If(V.Screen.FMain!chkDebug.Value,=,1)
+	F.Intrinsic.Control.AndIf(V.Screen.FMain!txtDebug.Text,=,"817")
+		Function.Intrinsic.Debug.InvokeDebugger
+		Function.Intrinsic.Debug.Stop
+	F.Intrinsic.Control.EndIf
+	'Create DataTable ------------------------------------------
+	V.Local.sTemp.Set("DTALL$DTCOMP")
+	F.Intrinsic.Control.If(V.DataTable.[V.Local.sTemp].Exists,=,True)
+		F.Data.DataTable.Close("DTALL$DTCOMP")
+	F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.If(V.DataTable.[V.Local.sDTable].Exists,=,True)
+		F.Data.DataTable.Close(V.Local.sDTable)
+		Gui.FMain.GSGCALL.ClearRows("GVALL")
+		Gui.FMain.GSGCALL.SuspendLayout
+	F.Intrinsic.Control.endif
+	'Create DTALL
+	F.Data.DataTable.CreateFromSQL(V.Local.sDTable,"ConX",V.Local.sSQL,True)
+
+
+	V.Local.sSQL.Set("SELECT ")
+	F.Intrinsic.String.Concat(V.Local.sSQL,"  IF(COT.OP_TYPE IS NULL, '**Unknown**', RTRIM(COT.OP_TYPE ) ) AS OP_TYPE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(0 AS BIT) AS DIFFERENT ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", '",V.Caller.CompanyCode,"' AS COMPANY_CODE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(0 AS BIT) AS F_BOOLEAN ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_TITLE IS NULL, '', RTRIM(COT.OP_TITLE) ) AS OP_TITLE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_DATATYPE IS NULL, '', RTRIM(COT.OP_DATATYPE) ) AS OP_DATATYPE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", IF(COT.OP_GROUP_ORDER IS NULL, '',COT.OP_GROUP_ORDER ) AS OP_GROUP_ORDER ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", COT.OP_ID + RIGHT(CONCAT('0000',LTRIM(COT.OP_SEQUENCE)),4)  as IDSEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", COT.OP_ID AS ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", COT.OP_SEQUENCE AS SEQ ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS TEXT1 ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(0 AS NUMERIC(14,2)) AS F_NUMERIC ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(0 AS NUMERIC(14,0)) AS F_LONG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS ASCII_FLAG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", CAST(NULL AS DATE) AS DATE_LAST_CHG ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS LAST_CHG_BY ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS LAST_CHG_ID ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL,", ' ' AS OP_SELECTED ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," FROM   XGS_CO_OPTION_TITLES COT ",V.Ambient.NewLine,V.Local.sSQL) 
+	F.Intrinsic.String.Concat(V.Local.sSQL," LEFT OUTER JOIN V_OP_HEADER VOP ON VOP.ID=COT.OP_ID AND VOP.SEQUENCE=COT.OP_SEQUENCE ",V.Ambient.NewLine,V.Local.sSQL) 
+	F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID IS NULL ",V.Ambient.NewLine,V.Local.sSQL)
+	''F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID<>'000000' AND VOP.SEQUENCE <> '' ",V.Ambient.NewLine,V.Local.sSQL)
+	'F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+	'	F.Intrinsic.String.Concat(V.Local.sSQL," WHERE VOP.ID='402149' ",V.Ambient.NewLine,V.Local.sSQL)
+	'F.Intrinsic.Control.EndIf
+	F.Intrinsic.String.Concat(V.Local.sSQL," ORDER BY OP_TYPE, OP_GROUP_ORDER, COT.OP_ID, COT.OP_SEQUENCE ",V.Ambient.NewLine,V.Local.sSQL)
+	F.Intrinsic.String.Concat(V.Local.sSQL," ; ",V.Local.sSQL)
+
+	F.Intrinsic.Control.If(V.DataTable.DTOPS.Exists,=,True)
+		F.Data.DataTable.Close("DTOPS")
+	F.Intrinsic.Control.endif
+	''Create DTOPS
+	F.Data.DataTable.CreateFromSQL("DTOPS","ConX",V.Local.sSQL,True)
+	F.Data.DataTable.Merge("DTOPS","DTALL",False,1)
+
+
+	'F.Data.DataTable.AddExpressionColumn(V.Local.sDTable,"IDSEQ","String","ID+SEQ")
+	
+	'Create DataView ------------------------------------------
+	F.Intrinsic.Control.If(V.DataView.[V.Local.sDTable]![V.Local.sDView].exists,=,true)
+		F.Data.DataView.Close(V.Local.sDTable,V.Local.sDView)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Create(V.Local.sDTable,V.Local.sDView,22,"","OP_TYPE, OP_GROUP_ORDER, IDSEQ")
+	
+	
+	'Create GridView ------------------------------------------
+	'Gui.[V.Local.sForm].[V.Local.sObject].AddGridviewFromDataTable(V.Local.sGrid,V.Local.sDTable)
+	Gui.[V.Local.sForm].[V.Local.sObject].AddGridViewFromDataView(V.Local.sGrid,V.Local.sDTable,V.Local.sDView)
+
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"MultiSelect",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionBehaviorEditable",False)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowSort",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowFilter",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsDetailShowDetailTabs",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewShowGroupPanel",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewRowAutoHeight",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsMenuShowAutoFilterRowItem",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"EnableAppearanceOddRow",True)
+	
+'	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"EnterKeyNavigation","Vertical")
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridviewProperty(V.Local.sGrid,"OptionsViewColumnAutoWidth",False)
+	'Don't use BestFitColumns - very slow except if very small grid and few rows
+	'Gui.[V.Local.sForm].[V.Local.sObject].BestFitColumns(V.Local.sGrid)
+
+	'Gui.[V.Local.sForm].[V.Local.sObject].SetColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"AllowSort",false)
+	
+	F.Intrinsic.Control.CallSub(GSGC_Layout,"sForm",V.Local.sForm,"sObject",V.Local.sObject,"sDTable",V.Local.sDTable,"sDView",V.Local.sDView,"sGrid",V.Local.sGrid,"nGridCols",V.Local.nGridCols,"sSQL","SKIP_SQL","sGSGC",V.Local.sGSGC)
+
+	'Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,"OP_TITLE","CellWordWrap","Wrap")
+	'Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,"TEXT1","CellWordWrap","Wrap")
+
+	
+	F.Intrinsic.Control.If(V.Screen.FMain!chkTech.Value,=,1)
+		Gui.FMain.cmdCompare.Enabled(True)
+		Gui.FMain.cboCoCode.Enabled(True)
+		Gui.FMain.cboCoCode.Locked(False)
+	F.Intrinsic.Control.EndIf
+	Gui.FMain.cmdExport.Enabled(True)
+
+	Gui.[V.Local.sForm].[V.Local.sObject].ResumeLayout
+	Gui.[V.Local.sForm].[V.Local.sObject].MainView(V.Local.sGrid)
+	'	'F.Intrinsic.Control.CallSub(FMain_resize)
+	'Gui.[V.Local.sForm]..Visible(True)
+
+
+
+F.Intrinsic.UI.CloseWaitDialog
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGCALL_Load.End
+
+Program.Sub.FMain_Resize.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+'Sub used for Resizing/Moving Objects on the Form
+'There is a Minimum/Maximum size of Form which it will not go beyond
+
+'Declare Variables for Moving/Sizing Objects on Form
+V.Local.iWTemp.Declare(Long)
+V.Local.iHTemp.Declare(Long)
+V.Local.iXTemp.Declare(Long)
+V.Local.iX2Temp.Declare(Long)
+V.Local.iYTemp.Declare(Long)
+V.Local.iY2Temp.Declare(Long)
+
+
+	v.Local.iWidth.Declare
+	v.Local.iHeight.Declare
+	V.Local.iX.Declare
+
+	F.Intrinsic.Math.Div(V.Screen.FMain.Width,2,V.Local.iX)
+	F.Intrinsic.Math.Sub(V.Local.iX,2000,V.Local.iX)
+	Gui.FMain.picGSSLogo.Position(V.Local.iX,4500)
+
+
+	F.Intrinsic.Math.Sub(V.Screen.FMain!tabDash.Width,120,V.Local.iWidth)
+	F.Intrinsic.Math.Sub(V.Screen.FMain!tabDash.Height,435,V.Local.iHeight)
+	gui.FMain.GSGCALL.Size(V.Local.iWidth,V.Local.iHeight)
+'	gui.FMain.GSGCPAST.Size(V.Local.iWidth,V.Local.iHeight)
+
+
+'Allow Horizontal Screen Size to Go Larger than 19710... but Not Less
+Function.Intrinsic.Control.If(Variable.Screen.FMain.Width,<,15480)
+	Gui.FMain..Size(15480,Variable.Screen.FMain.Height)
+Function.Intrinsic.Control.EndIf
+
+'Allow Vertical Screen Size to Go Larger than 10605... but Not Less
+F.Intrinsic.Control.If(Variable.Screen.FMain.Height,<,10875)
+	Gui.FMain..Size(Variable.Screen.FMain.Width,10875)
+F.Intrinsic.Control.EndIf
+
+'Resize the tab and frames
+F.Intrinsic.Math.sub(V.Screen.FMain.Width,390,V.Local.iWTemp)
+F.Intrinsic.Math.sub(V.Screen.FMain.Height,2000,V.Local.iHTemp)
+
+
+'Resize the tab and frames
+F.Intrinsic.Math.sub(V.Screen.FMain.Width,390,V.Local.iWTemp)
+F.Intrinsic.Math.sub(V.Screen.FMain.Height,2000,V.Local.iHTemp)
+Gui.FMain.tabDash.Size(V.Local.iWTemp,V.Local.iHTemp)
+
+'Resize gsfg (It Does Not Move)
+'F.Intrinsic.Math.sub(V.Screen.FMain.Width,480,V.Local.iWTemp)
+'F.Intrinsic.Math.sub(V.Screen.FMain.Height,800,V.Local.iHTemp)
+F.Intrinsic.Math.sub(V.Screen.FMain!tabDash.Width,480,V.Local.iWTemp)
+F.Intrinsic.Math.sub(V.Screen.FMain!tabDash.Height,800,V.Local.iHTemp)
+Gui.FMain.GSGCALL.Size(V.Local.iWTemp,V.Local.iHTemp)
+
+'Gui.FMain.frmAtTopMain.Size(V.Local.iWTemp,V.Screen.FMain!frmAtTopMain.Height)
+'Gui.FMain.frmTop1.Size(V.Local.iWTemp,V.Screen.FMain!frmTop1.Height)
+'Gui.FMain.frmActions.Size(V.Local.iWTemp,V.Screen.FMain!frmActions.Height)
+'Gui.FMain.frmQuery.Size(V.Local.iWTemp,V.Screen.FMain!frmQuery.Height)
+
+'F.Intrinsic.Math.Sub(V.Local.iWTemp,500,V.Local.iWTemp)
+'Gui.FMain.frmBottom.Size(V.Local.iWTemp,V.Screen.FMain!frmBottom.Height)
+'F.Intrinsic.Math.sub(V.Screen.FMain.Width,200,V.Local.iWTemp)
+'F.Intrinsic.Math.Sub(V.Screen.FMain.Height,1480,V.local.iYTemp)
+'Gui.FMain.frmBottom.position(V.Screen.FMain!frmBottom.Left,V.Local.iYTemp)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.FMain_Resize.End
+
+Program.Sub.GSGCALL_CellValueChanged.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGCALL_CellValueChanged.End
+
+Program.Sub.GSGCALL_RowCellClick.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare
+
+v.Local.stemp.Declare
+v.Local.stemp2.Declare
+v.Local.stemp3.Declare
+V.Local.sParams.Declare
+V.Local.iDayTrf.Declare
+V.Local.iMonthTrf.Declare
+V.Local.iYearTrf.Declare
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.SelectCase(v.Args.column)
+	F.Intrinsic.Control.Case("ORDER_NO")
+		Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","ORDER_NO",v.Args.RowIndex,v.Local.stemp)
+		F.Intrinsic.Control.If(v.Screen.FMain!optEdit.Value,=,True,"OR",v.Screen.FMain!optIssue.Value,=,True,v.Screen.FMain!optWipToFG.Value,=,True)
+			F.Intrinsic.String.Concat(V.Local.stemp,"!*!O!*!*!*ZDR*!*",v.Local.stemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(200000,v.Local.stemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.Else
+			F.Intrinsic.String.Concat(v.Local.stemp,"!*!V!*!*!*ZDR*!*",v.Local.stemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(200000,v.Local.stemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.CaseAny("JOB","SUFFIX")
+		Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","JOB",v.Args.RowIndex,v.Local.sTemp)
+		Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","SUFFIX",v.Args.RowIndex,V.Local.stemp2)
+		F.Intrinsic.Control.If(V.Screen.FMain!optEdit.Value,=,True)
+			F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.sTemp,V.Local.sTemp2,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(2009,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.ElseIf(V.Screen.FMain!optIssue.Value,=,True)
+			F.Intrinsic.String.Build("{0}!*!{1}!*! !*! !*! !*! !*! ",V.Local.sTemp,V.Local.sTemp2,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(450150,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.ElseIf(V.Screen.FMain!optWiptoFG.Value,=,True)
+			'Build Call Wrapper String
+			F.Intrinsic.Date.Day(V.Ambient.Date,V.Local.iDayTrf)
+			F.Intrinsic.Date.Month(V.Ambient.Date,V.Local.iMonthTrf)
+			F.Intrinsic.Date.Year(V.Ambient.Date,V.Local.iYearTrf)
+			F.Intrinsic.String.Build("{0}!*!{1}!*!{2}!*!OS!*!!*!!*!!*!!*!!*!!*!{3}!*!{4}!*!16!*!03!*!02!*!!*!!*!!*!!*!!*!!*!!*!!*!!*!",V.Caller.CompanyCode,V.Caller.Terminal,V.Caller.Caller,V.Local.sTemp,V.Local.sTemp2,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(2003,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.Else
+			'Build Call Wrapper String
+			F.Intrinsic.String.Concat("7","!*!",V.Local.sTemp,"!*!",V.Local.sTemp2,"!*!","A",V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(450000,V.Local.sTemp)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.EndIf
+
+	F.Intrinsic.Control.CaseAny("PART","LOCATION")
+		F.Intrinsic.Control.If(V.Screen.FMain!optView.Value,=,True)
+			Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","PART",v.Args.RowIndex,v.Local.stemp)
+			Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","LOCATION",v.Args.RowIndex,v.Local.stemp2)
+			F.Intrinsic.String.Build("{0}!*!{1}!*!O",V.Local.stemp,V.Local.stemp2,V.Local.sParams)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(300011,V.Local.sParams)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.Else
+			Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","PART",v.Args.RowIndex,v.Local.stemp)
+			Gui.FMain.GSGCALL.GetCellValueByColumnName("gvAll","LOCATION",v.Args.RowIndex,v.Local.stemp2)
+			F.Intrinsic.String.Build("{0}!*!{1}!*!M",V.Local.stemp,V.Local.stemp2,V.Local.sParams)
+			F.Intrinsic.Control.CallSub(disablecontrols)
+			F.Global.General.CallWrapperSync(300011,V.Local.sParams)
+			F.Intrinsic.Control.CallSub(enablecontrols)
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndSelect
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGCALL_RowCellClick.End
+
+Program.Sub.GSGCALL_RowClick.Start
+Program.Sub.GSGCALL_RowClick.End
+
+Program.Sub.DisableControls.Start
+	Gui.FMain.lblStatus.Caption("Loading ....")
+	Gui.FMain.progressBar1.Min(0)
+	Gui.FMain.progressBar1.Max(100)
+	Gui.FMain.progressBar1.Value(0)
+	Gui.FMain.lblStatus.Visible(True)
+	Gui.FMain.progressBar1.Visible(True)
+	Gui.FMain.frmButtons.Enabled(False)
+	Gui.FMain.frmPermissions.Enabled(False)
+	Gui.FMain.tabDash.Enabled(False)
+Program.Sub.DisableControls.End
+
+Program.Sub.EnableControls.Start
+	Gui.FMain.frmButtons.Enabled(True)
+	Gui.FMain.frmPermissions.Enabled(True)
+	Gui.FMain.tabDash.Enabled(True)
+	Gui.FMain.lblStatus.Visible(False)
+	Gui.FMain.progressBar1.Visible(False)
+	F.Intrinsic.Control.CallSub(checkpermissions)
+Program.Sub.EnableControls.End
+
+Program.Sub.Call_Debug.Start
+	F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+		F.Intrinsic.Debug.InvokeDebugger
+		F.Intrinsic.Debug.Stop
+	F.Intrinsic.Control.EndIf
+Program.Sub.Call_Debug.End
+
+Program.Sub.sub_GetRptID.Start
+'--------------------- sub_GetRptID -------------------
+'Return value of -1 at end of subroutine to check on return
+'--------------------- sub_GetRptID -------------------
+V.Local.sBIPath.Declare
+V.Local.bExists.Declare(Boolean)
+V.Local.sPath.Declare(String)
+V.Local.nRptID.Declare(Long,0)
+V.Local.sRptName.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.sType.Declare(String,"RPT")
+V.Local.nRptSEQ.Declare(Long)
+V.Local.sSQL.Declare(String)
+
+
+V.Local.nRptID.Set(-1)
+V.Local.sRptName.Set(V.Args.sRptName)
+
+F.Intrinsic.File.GetExtensionComponent(V.Local.sRptName.UCase,V.Local.sType)
+V.Local.sBIPath.Redim(0,1)
+F.Intrinsic.Control.SelectCase(V.Local.sType)
+	F.Intrinsic.Control.Case("RPT")
+		F.Intrinsic.String.Concat(V.Caller.BusintDir,"\Custom",V.Local.sBIPath(0))
+		F.Intrinsic.String.Concat("#REPORT-PATH#","\Custom\",V.Local.sRptName,V.Local.sBIPath(1))
+	F.Intrinsic.Control.Case("LAB")
+		F.Intrinsic.String.Concat(V.Caller.BusintDir,"\LABELS\Custom",V.Local.sBIPath(0))
+		F.Intrinsic.String.Concat("#LABEL-PATH#","\Custom\",V.Local.sRptName,V.Local.sBIPath(1))
+F.Intrinsic.Control.EndSelect
+
+F.Global.BI.GetIDFromName(V.Local.sRptName.Trim,V.Local.nRptID)
+F.Intrinsic.Control.If(V.Local.nRptID,=,-1)
+		F.Intrinsic.String.Concat(V.Local.sBIPath(0),"\",V.Local.sRptName.Trim,V.Local.sPath)
+		F.Intrinsic.File.Exists(V.Local.sPath,V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.Intrinsic.String.Concat("Report: ",V.Local.sRptName," not found in ",V.Local.sBIPath(0),V.Local.sTemp)
+			F.Intrinsic.UI.Msgbox(V.Local.sTemp)
+			F.Intrinsic.Control.Goto("Exit_Sub")
+		F.Intrinsic.Control.EndIf
+		'F.Intrinsic.String.Concat("#REPORT-PATH#","\Custom\",V.Local.sRptName,V.Local.sPath)
+		F.Global.BI.InitializeReport(V.Local.sRptName.Trim,V.Local.sBIPath(1),V.Local.nRptID)
+		F.Intrinsic.Variable.AddRV("nRptID",V.Local.nRptID)
+		F.Intrinsic.Control.If(V.Local.nRptID,=,-1)
+				F.Intrinsic.String.Concat("Please setup ",V.Local.sRptName,". Report in BI Report Maintenance",V.Local.sTemp)
+				F.Intrinsic.UI.Msgbox(V.Local.sTemp)
+				F.Intrinsic.Control.Goto("Exit_Sub")
+			F.Intrinsic.Control.Else
+				'F.ODBC.Connection!CommonX.OpenCommonConnection(2500)
+				'This is a new user report so SEQ will be 10
+				V.Local.nRptSEQ.Set(10)
+				V.Local.sSQL.Set("UPDATE BIR_USER_SEQ SET DESCRIPTION='{0}' WHERE REPORT_ID='{1}' AND REPORT_SEQUENCE='{2}' AND COMPANY='{3}' ")
+				F.Intrinsic.String.Build(V.Local.sSQL,V.Local.sRptName,V.Local.nRptID,V.Local.nRptSEQ,V.Caller.CompanyCode,V.Local.sSQL)
+				F.ODBC.Connection!CommonX.Execute(V.Local.sSQL)
+				'F.ODBC.Connection!CommonX.Close
+		F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.Label("Exit_Sub")
+
+F.Intrinsic.Variable.AddRV("nRptID",V.Local.nRptID)
+
+Program.Sub.sub_GetRptID.End
+
+Program.Sub.sub_TableCheck.Start
+'	F.ODBC.Connection!ConX.TableExists("GAB_4167_SO_NOTES",V.Local.bExists)
+'	F.Intrinsic.Control.If(V.Local.bExists,=,False)
+'	F.Intrinsic.Control.EndIf
+
+V.Local.sAlterParam.Declare(String)
+V.Local.sAlterSQL.Declare(String)
+V.Local.bExists.Declare
+V.Local.sFile.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.sSQL.Declare(String)
+V.Local.sTable.Declare(String)
+V.Local.sTemp.Declare
+
+
+'F.ODBC.Connection!ConX.OpenConnection(V.Global.sCompanyPDSN,V.Global.sPUser,V.Global.sPPass)
+
+F.Intrinsic.Control.ErrorResume(True)
+V.Local.sFile.Redim(0,2)
+F.Intrinsic.String.Build("{0}\DDF\XGS_CO_OPTION_TITLES.MKD",V.Caller.GlobalDir,V.Local.sFile(0))
+'F.Intrinsic.String.Build("{0}\DDF\XGS_CO_OPTION_DDL.MKD",V.Caller.GlobalDir,V.Local.sFile(0))
+
+'=====================================================================
+
+F.Intrinsic.Control.ClearErrors
+V.Local.sTable.Set("XGS_CO_OPTION_TITLES")
+F.Intrinsic.String.Build("SELECT * FROM {0}",V.Local.sTable,V.Local.sAlterSQL)
+F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+		F.ODBC.Connection!ConX.OpenRecordsetRO("rstTable",V.Local.sAlterSQL)
+	F.Intrinsic.Control.Else
+		F.ODBC.Connection!CoCodeX.OpenRecordsetRO("rstTable",V.Local.sAlterSQL)
+F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.If(V.Ambient.ErrorDescription,<>,"")
+		F.Intrinsic.String.Build("{0}\DDF\{1}\XGS_CO_OPTION_TITLES.MKD",V.Caller.GlobalDir,V.Args.sCoCode,V.Local.sFile(2))
+		F.Intrinsic.File.Exists(V.Local.sFile(2),V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.Intrinsic.String.Build("{0}\DDF\{1}\XGS_CO_OPTION_TITLES.MKD",V.Caller.GlobalDir,V.Caller.CompanyCode,V.Local.sFile(1))
+'			F.Intrinsic.File.Exists(V.Local.sFile(1),V.Local.bExists)
+'			F.Intrinsic.Control.If(V.Local.bExists,=,True)
+'				F.Intrinsic.File.CopyOpenFile(V.Local.sFile(1),V.Local.sFile(2))
+'			F.Intrinsic.Control.EndIf
+			F.Intrinsic.File.Exists(V.Local.sFile(0),V.Local.bExists)
+			F.Intrinsic.Control.If(V.Local.bExists,=,True)
+				F.Intrinsic.File.CopyOpenFile(V.Local.sFile(0),V.Local.sFile(2))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.File.Exists(V.Local.sFile(2),V.Local.bExists)
+			F.Intrinsic.Control.If(V.Local.bExists,=,False)
+				F.Intrinsic.UI.Msgbox("Database table file XGS_CO_OPTION_TITLES.MKD was not found in DDF folder.","Company Options Compare table check")
+				F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.EndIf
+				Gui.FMain.cboCoCode.Enabled(False)
+				Gui.FMain.cmdCompare.Enabled(False)
+				F.Intrinsic.Variable.AddRV("bError",True)
+				F.Intrinsic.Control.GoTo("Exit_Sub")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.String.Build("{0}\DDF\{1}\XGS_CO_OPTION_DDL.MKD",V.Caller.GlobalDir,V.Args.sCoCode,V.Local.sFile(2))
+		F.Intrinsic.File.Exists(V.Local.sFile(2),V.Local.bExists)
+		F.Intrinsic.Control.If(V.Local.bExists,=,False)
+			F.Intrinsic.String.Build("{0}\DDF\{1}\XGS_CO_OPTION_DDL.MKD",V.Caller.GlobalDir,V.Caller.CompanyCode,V.Local.sFile(1))
+			F.Intrinsic.String.Build("{0}\DDF\XGS_CO_OPTION_DDL.MKD",V.Caller.GlobalDir,V.Local.sFile(0))
+'			F.Intrinsic.File.Exists(V.Local.sFile(1),V.Local.bExists)
+'			F.Intrinsic.Control.If(V.Local.bExists,=,True)
+'				F.Intrinsic.File.CopyOpenFile(V.Local.sFile(1),V.Local.sFile(2))
+'			F.Intrinsic.Control.EndIf
+			F.Intrinsic.File.Exists(V.Local.sFile(0),V.Local.bExists)
+			F.Intrinsic.Control.If(V.Local.bExists,=,True)
+				F.Intrinsic.File.CopyOpenFile(V.Local.sFile(0),V.Local.sFile(2))
+			F.Intrinsic.Control.EndIf
+			F.Intrinsic.File.Exists(V.Local.sFile(2),V.Local.bExists)
+			F.Intrinsic.Control.If(V.Local.bExists,=,False)
+				F.Intrinsic.UI.Msgbox("Database table file XGS_CO_OPTION_DDL.MKD was not found in DDF folder.","Company Options Compare table check")
+				F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+					F.Intrinsic.Control.End
+				F.Intrinsic.Control.EndIf
+				Gui.FMain.cboCoCode.Enabled(False)
+				Gui.FMain.cmdCompare.Enabled(False)
+				F.Intrinsic.Variable.AddRV("bError",True)
+				F.Intrinsic.Control.GoTo("Exit_Sub")
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Variable.AddRV("bError",False)
+
+
+		F.Intrinsic.UI.InvokeWaitDialog("Database table setup - checking/creating updates","Table setup")
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.ConX!rstTable.Close
+				F.ODBC.Connection!ConX.Execute("DROP TABLE XGS_CO_OPTION_TITLES IN DICTIONARY ; ")
+			F.Intrinsic.Control.Else
+				F.ODBC.CoCodeX!rstTable.Close
+				F.ODBC.Connection!CoCodeX.Execute("DROP TABLE XGS_CO_OPTION_TITLES IN DICTIONARY ; ")
+		F.Intrinsic.Control.EndIf
+
+		V.Local.sSQL.Set("")
+		'F.Intrinsic.String.Concat(V.Local.sSQL," SET TRUENULLCREATE = OFF; ",V.Ambient.NewLine,V.Local.sSQL)
+		'F.Intrinsic.String.Concat(V.Local.sSQL," SET TRUEBITCREATE = OFF; ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," CREATE TABLE ",V.Local.sTable," IN DICTIONARY USING 'XGS_CO_OPTION_TITLES.mkd' ( ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," OP_TYPE CHAR(30) ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_TITLE CHAR(250) ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_ID CHAR(6) DEFAULT '000000' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_SEQUENCE CHAR(4) DEFAULT '0000' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_DATATYPE CHAR(15) ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_GROUP_ORDER CHAR(6) DEFAULT '000000' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_DROPDOWN_FLAG BIT DEFAULT '0' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," ) ; ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sAlterSQL,V.Local.sSQL,V.Local.sAlterSQL)
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.Connection!ConX.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.Else
+				F.ODBC.Connection!CoCodeX.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.UI.Sleep(1)
+		
+		F.Intrinsic.String.Build("CREATE UNIQUE INDEX OPIDSEQ001 ON XGS_CO_OPTION_TITLES(OP_ID,OP_SEQUENCE);",V.Local.sTable,V.Local.sSQL)
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.Connection!ConX.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.Else
+				F.ODBC.Connection!CoCodeX.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.UI.Sleep(1)
+		'F.Intrinsic.String.Build("CREATE INDEX OPIDIND001 ON XGS_CO_OPTION_TITLES(OP_ID) ; ",V.Local.sTable,V.Local.sSQL)
+		'F.ODBC.Connection!ConX.Execute(V.Local.sSQL)
+		'F.Intrinsic.UI.Sleep(1)
+		'F.Intrinsic.String.Build("CREATE INDEX OPSEQIND001 ON XGS_CO_OPTION_TITLES(OP_SEQUENCE) ; ",V.Local.sTable,V.Local.sSQL)
+		'F.ODBC.Connection!ConX.Execute(V.Local.sSQL)
+		'F.Intrinsic.UI.Sleep(1)
+
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.ConX!rstTable.Close
+				F.ODBC.Connection!ConX.Execute("DROP TABLE XGS_CO_OPTION_DDL IN DICTIONARY ; ")
+			F.Intrinsic.Control.Else
+				F.ODBC.CoCodeX!rstTable.Close
+				F.ODBC.Connection!CoCodeX.Execute("DROP TABLE XGS_CO_OPTION_DDL IN DICTIONARY ; ")
+		F.Intrinsic.Control.EndIf
+		V.Local.sSQL.Set("")
+		'F.Intrinsic.String.Concat(V.Local.sSQL," SET TRUENULLCREATE = OFF; ",V.Ambient.NewLine,V.Local.sSQL)
+		'F.Intrinsic.String.Concat(V.Local.sSQL," SET TRUEBITCREATE = OFF; ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," CREATE TABLE XGS_CO_OPTION_DDL IN DICTIONARY USING 'XGS_CO_OPTION_DDL.mkd' ( ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," OP_ID CHAR(6) ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_SEQ CHAR(4) DEFAULT '0000' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_F_LONG NUMERIC(16,0) NOT NULL DEFAULT '0' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_SELECTED CHAR(50)  ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", OP_DROPDOWN_FLAG BIT DEFAULT '0' ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL,", PRIMARY KEY (OP_ID, OP_SEQ, OP_F_LONG) ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sSQL," ) ; ",V.Ambient.NewLine,V.Local.sSQL)
+		F.Intrinsic.String.Concat(V.Local.sAlterSQL,V.Local.sSQL,V.Local.sAlterSQL)
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.Connection!ConX.Execute(V.Local.sSQL)
+			F.Intrinsic.Control.Else
+				F.ODBC.Connection!CoCodeX.Execute(V.Local.sSQL)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.UI.Sleep(1)
+		
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+				F.ODBC.ConX!rstTable.Close
+			F.Intrinsic.Control.Else
+				F.ODBC.CoCodeX!rstTable.Close
+		F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Variable.AddRV("bError",False)
+F.Intrinsic.Control.Label("Exit_Sub")
+
+
+F.Intrinsic.Control.ClearErrors
+
+F.Intrinsic.Control.If(V.Args.sCoCode,=,V.Caller.CompanyCode)
+		F.Intrinsic.Debug.Print("Do Nothing Here")
+	F.Intrinsic.Control.Else
+		F.ODBC.Connection!CoCodeX.Close
+F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ErrorResume(False)
+F.Intrinsic.UI.CloseWaitDialog
+
+Program.Sub.sub_TableCheck.End
+
+Program.Sub.optEdit_Click.Start
+F.Intrinsic.Control.ExitSub
+
+Gui.FMain.GSGCALL.SuspendLayout
+F.Intrinsic.Control.SelectCase(V.Args.ControlName)
+	F.Intrinsic.Control.Case("OPTVIEW")
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","AllowEdit",True)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","ReadOnly",False)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","CellForeColor",Blue)
+	F.Intrinsic.Control.Case("OPTEDIT")
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","AllowEdit",True)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","ReadOnly",False)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INFO","CellForeColor",Black)
+F.Intrinsic.Control.EndSelect
+Gui.FMain.GSGCALL.ResumeLayout
+
+
+V.Local.sBackColor.Declare(String,"White")
+V.Local.bReadOnly.Declare(Boolean,True)
+V.Local.bAllowEdit.Declare(Boolean,False)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+
+F.Intrinsic.Control.If(V.Screen.FMain!optEdit.Value,=,True)
+	V.Local.bReadOnly.Set(False)
+	V.Local.bAllowEdit.Set(True)
+	V.Local.sBackColor.Set("LightYellow")
+F.Intrinsic.Control.EndIf
+
+'F.Intrinsic.Control.SelectCase(V.Args.ControlName)
+'	F.Intrinsic.Control.Case("OPTVIEW")
+'	F.Intrinsic.Control.Case("OPTEDIT")
+'F.Intrinsic.Control.EndSelect
+
+Gui.FMain.GSGCALL.SuspendLayout
+
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPID","AllowEdit",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPID","ReadOnly",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPID","CellBackColor",V.Local.sBackcolor)
+		
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DATATYPE","AllowEdit",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DATATYPE","ReadOnly",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DATATYPE","CellBackColor",V.Local.sBackcolor)
+
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DESCRIPTION","AllowEdit",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DESCRIPTION","ReadOnly",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","DESCRIPTION","CellBackColor",V.Local.sBackcolor)
+
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPCODE","AllowEdit",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPCODE","ReadOnly",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","PROPCODE","CellBackColor",V.Local.sBackcolor)
+
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","COMMENT","AllowEdit",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","COMMENT","ReadOnly",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","COMMENT","CellBackColor",V.Local.sBackcolor)
+
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INACTIVE_FLAG","AllowEdit",V.Local.bAllowEdit)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INACTIVE_FLAG","ReadOnly",V.Local.bReadOnly)
+		Gui.FMain.GSGCALL.SetColumnProperty("GVALL","INACTIVE_FLAG","CellBackColor",V.Local.sBackcolor)
+
+Gui.FMain.GSGCALL.ResumeLayout
+Program.Sub.optEdit_Click.End
+
+Program.Sub.GSGC_Layout.Start
+F.Intrinsic.Control.Try
+F.Intrinsic.Control.ClearErrors
+V.Local.sError.Declare(String)
+
+V.Local.nColCtr.Declare(Long,-1)
+V.Local.nColumn.Declare(Long)
+V.Local.nCtr.Declare(Long)
+V.Local.sDateFrom.Declare(String)
+V.Local.sDateUpto.Declare(String)
+V.Local.sDTable.Declare(String)
+V.Local.sDView.Declare(String)
+V.Local.fExtension.Declare(Float)
+V.Local.sForm.Declare(String)
+V.Local.sGrid.Declare(String)
+V.Local.nGridCols.Declare(Long)
+V.Local.sGSGCcol.Declare(String)
+V.Local.sGSGC.Declare(String)
+V.Local.sObject.Declare(String)
+V.Local.sRegName.Declare(String)
+V.Local.sRegistry.Declare
+V.Local.sRet.Declare(String)
+V.Local.bSOs.Declare(Boolean)
+V.Local.sSQL.Declare(String)
+V.Local.sSQLsoc.Declare(String)
+V.Local.sTemp.Declare(String)
+V.Local.nUB.Declare(Long)
+V.Local.sWrap.Declare(String,"NoWrap")
+
+V.Local.bReadOnly.Declare(Boolean,True)
+V.Local.bAllowEdit.Declare(Boolean,False)
+V.Local.sEditFore.Declare(String)
+V.Local.sEditBack.Declare(String)
+F.Intrinsic.Control.If(V.Screen.FMain!optEdit.Value,=,True)
+	V.Local.bReadOnly.Set(False)
+	V.Local.bAllowEdit.Set(True)
+	V.Local.sEditBack.Set("LightYellow")
+	V.Local.sEditFore.Set("Blue")
+F.Intrinsic.Control.EndIf
+
+
+	V.Local.sForm.Set(V.Args.sForm)	
+	V.Local.sObject.Set(V.Args.sObject)
+	V.Local.sDTable.Set(V.Args.sDTable)
+	V.Local.sDView.Set(V.Args.sDView)
+	V.Local.sGrid.Set(V.Args.sGrid)
+	V.Local.nGridCols.Set(V.Args.nGridCols)
+	V.Local.sSQL.Set(V.Args.sSQL)
+	V.Local.sGSGC.Set(V.Args.sGSGC)
+
+'	F.Intrinsic.Control.If(V.Caller.User,=,"SKIDMOG ")
+'		Function.Intrinsic.Debug.InvokeDebugger
+'		Function.Intrinsic.Debug.Stop
+'	F.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.If(V.Local.sSQL.Trim,=,"SKIP_SQL")
+	F.Intrinsic.Control.GoTo("SKIP_SQL")
+F.Intrinsic.Control.EndIf
+
+	'Create DataTable ------------------------------------------
+	F.Intrinsic.Control.If(V.DataTable.[V.Local.sDTable].Exists,=,True)
+		F.Data.DataTable.Close(V.Local.sDTable)
+		Gui.[V.Local.sForm].[V.Local.sObject].ClearRows(V.Local.sGrid)
+		Gui.[V.Local.sForm].[V.Local.sObject].SuspendLayout
+	F.Intrinsic.Control.endif
+	F.Data.DataTable.CreateFromSQL(V.Local.sDTable,"ConX",V.Local.sSQL,True)
+	'Create DataView ------------------------------------------
+	F.Intrinsic.Control.If(V.DataView.[V.Local.sDTable]![V.Local.sDView].exists,=,true)
+		F.Data.DataView.Close(V.Local.sDTable,V.Local.sDView)
+	F.Intrinsic.Control.EndIf
+	F.Data.DataView.Create(V.Local.sDTable,V.Local.sDView)
+	'With filter and sort
+	'F.Data.DataView.Create(V.Local.sDTable,V.Local.sDView,22,"ORDER_NO <>''",ORDER_NO,DATE_DUE)
+	'Create GridView ------------------------------------------
+	'Gui.[V.Local.sForm].[V.Local.sObject].AddGridviewFromDataTable(V.Local.sGrid,V.Local.sDTable)
+	Gui.[V.Local.sForm].[V.Local.sObject].AddGridViewFromDataView(V.Local.sGrid,V.Local.sDTable,V.Local.sDView)
+
+	F.Intrinsic.Control.Label("SKIP_SQL")
+
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"MultiSelect",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionBehaviorEditable",False)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowSort",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"AllowFilter",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsDetailShowDetailTabs",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewShowGroupPanel",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsViewRowAutoHeight",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"OptionsMenuShowAutoFilterRowItem",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridViewProperty(V.Local.sGrid,"EnableAppearanceOddRow",True)
+	Gui.[V.Local.sForm].[V.Local.sObject].SetGridviewProperty(V.Local.sGrid,"OptionsViewColumnAutoWidth",True)
+	'Gui.[V.Local.sForm].[V.Local.sObject].BestFitColumns(V.Local.sGrid)
+
+
+
+	'Note the above ends in #$# so it has one blank array row at the end
+	F.Intrinsic.String.Split(V.Local.sGSGC,"#$#",V.Local.sGSGC)
+	F.Intrinsic.Math.Sub(V.Local.sGSGC.UBound,1,V.Local.nUB)
+	V.Local.nGridCols.Set(V.Local.nUB)
+	F.Intrinsic.Control.For(V.Local.nColumn,0,V.Local.nUB,1)
+		V.Local.sGSGCcol(0).Set(V.Local.sGSGCcol(0).Trim)
+		F.Intrinsic.String.Split(V.Local.sGSGC(V.Local.nColumn),",",V.Local.sGSGCcol)
+		'Visible True/False
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(1),=,False)
+				Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"Visible",False)
+			F.Intrinsic.Control.Else
+				Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"Visible",True)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(1),=,True)
+				Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"VisibleIndex",V.Local.nColumn)
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(2),=,"")
+				Gui.[V.Local.sForm].[V.Local.sObject].SetColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"ShowCaption",False)
+			F.Intrinsic.Control.Else
+				Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"Caption",V.Local.sGSGCcol(2).Trim)
+		F.Intrinsic.Control.EndIf
+		Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"HeaderHAlignment",V.Local.sGSGCcol(3))
+		Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"CellHAlignment",V.Local.sGSGCcol(4))
+		Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"minWidth",V.Local.sGSGCcol(5))
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(6),<>,"-1")
+				Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"maxWidth",V.Local.sGSGCcol(6))
+			F.Intrinsic.Control.Else
+				Gui.[V.Local.sForm].[V.Local.sObject].SetColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"FixedWidth",False)
+		F.Intrinsic.Control.EndIf
+		Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"ReadOnly",V.Local.sGSGCcol(7))
+		Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"AllowEdit",V.Local.sGSGCcol(8))
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(9),=,"Y")
+			Gui.[V.Local.sForm].[V.Local.sObject].SetColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"DisplayFormatType","numeric")
+			F.Intrinsic.String.Replace(V.Local.sGSGCcol(10),";",",",V.Local.sGSGCcol(10))
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"DisplayCustomNumeric",V.Local.sGSGCcol(10))
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(11).Trim,<>,"")
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"DisplayCustomDatetime",V.Local.sGSGCcol(11))
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(12).Trim,<>,"")
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"CellForeColor",V.Local.sGSGCcol(12))
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(13).Trim,<>,"")
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"CellBackColor",V.Local.sGSGCcol(13))
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(14).Trim,<>,"")
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"CellFontUnderline",V.Local.sGSGCcol(14))
+		F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.If(V.Local.sGSGCcol(15).Trim,<>,"")
+			Gui.[V.Local.sForm].[V.Local.sObject].setColumnProperty(V.Local.sGrid,V.Local.sGSGCcol(0),"Fixed",V.Local.sGSGCcol(15))
+		F.Intrinsic.Control.EndIf
+	F.Intrinsic.Control.Next(V.Local.nColumn)
+
+'	Gui.[V.Local.sForm].[V.Local.sObject].ResumeLayout
+'	Gui.[V.Local.sForm].[V.Local.sObject].MainView(V.Local.sGrid)
+	
+		
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Catch
+	F.Intrinsic.String.Build("Project: {0}{1}{1}Subroutine: {2}{1}Error {3}{1} description {4}{1}{1}GAB Version: {5}{6}{7} ",V.Global.sProject,V.Ambient.Newline,V.Ambient.CurrentSubroutine,V.Ambient.ErrorNumber,V.Ambient.ErrorDescription,V.Ambient.GABVersion,V.Ambient.Tab,V.Global.sITNotice,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+	F.Intrinsic.Control.End
+F.Intrinsic.Control.EndTry
+Program.Sub.GSGC_Layout.End
+
+Program.Sub.Comments.Start
+${$0$}$$}$$}$12:00:00 AM$}$False
+${$5$}$2.0.0.0$}$2
+${$6$}$rnair$}$20210416204619484$}$JUGEdtlNdgRUPvge2DQ26bz/1piQWHOnRy2VwJXAS8qakTiXFvhsx0ke3FGt5ayU19wyo01GPZk=
+Program.Sub.Comments.End
